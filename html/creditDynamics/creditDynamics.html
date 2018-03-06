@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>信用动态</title>
+<!-- start head.html-->
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../layui/css/layui.css" rel="stylesheet">
+    <!- -[if (gte IE 6)&(lte IE 8)]>
+    <!-- CSS3选择器支持，如使用请打开
+         非必要情况下一般不建议使用，IE8下会影响页面性能
+    <script type="text/javascript" src="../../js/common/nwmatcher.js"></script>
+    <script type="text/javascript" src="../../js/common/selectivizr-min.js"></script>
+    -->
+    <!-- 低版本浏览器兼容 Html5 新标签，如：article、footer、header、nav、section等
+         非必要情况下一般不建议使用
+    <script src="../../js/common/html5shiv.min.js"></script>
+    -->
+    <!--  ES5 的一些属性、方法。非必要情况下一般不建议使用
+    <script src="../../js/common/es5-sham.min.js"></script>
+    -->
+    <![endif]- ->
+
+<!-- end head.html-->
+    <link type="text/css" href="../../css/less/creditDynamics.css" rel="stylesheet">
+</head>
+<body>
+<!-- start header.html-->
+<div class="header">
+	<div class="hd-box">
+		<a href="../publicService/publicService.html"><img class="hd-logo" src="../../img/hd-logo.png">
+			<span class="hd-title">泸州市公共信用信息公众服务平台</span></a>
+		<div class="header-opt">
+			<a href="../messageNotification/messageNotification.html"><span class="hd-msg"><span class="hd-msg-num">&nbsp;&nbsp;</span></span></a>
+			<img class="hd-user" src="../../img/user-head.png">
+			<span class="hd-quit"></span>
+			<i class="vertical-align"></i>
+		</div>
+		<i class="vertical-align"></i>
+	</div>
+</div>
+<!-- end header.html-->
+<div class="main-wrap clearfix">
+<!-- start menu.html-->
+<div class="menu">
+    <ul>
+        <li surl="../creditDynamics/creditDynamics.html"><span class="icon1"></span><a herf="#">信用动态</a></li>
+        <li surl="../punishment/punishment.html"><span class="icon2"></span><a herf="#">联合惩戒</a></li>
+        <li surl="../creditObjection/creditObjection.html"><span class="icon3"></span><a herf="#">信用异议</a></li>
+        <li surl="../creditCertification/creditCertification.html"><span class="icon4"></span><a herf="#">信用认证</a></li>
+        <li surl="../creditRepair/creditRepair.html"><span class="icon5"></span><a herf="#">信用修复</a></li>
+    </ul>
+</div>
+<!-- end menu.html-->
+    <div class="container">
+        <div class="margin-bottom btn-wrap">
+            <span class="btn-sapn btn-sapn-blue">批量导入</span>
+            <span class="btn-sapn btn-sapn-orange">模板下载</span>
+        </div>
+        <div class="form-wrap">
+            <div class="form-group fl">
+                <span class="label">标题</span>
+                <input type="text" id="title" class="title"/>
+            </div>
+            <div class="form-group  fl date-group">
+                <span class="label">时间</span>
+                <input id="date1" type="text" class="date-input"/>
+                <span class="line">-</span>
+                <input id="date2" type="text" class="date-input"/>
+            </div>
+            <div class="form-group fr">
+                <span class="btn-sapn btn-sapn-query">查询</span>
+                <a class="btn-sapn btn-sapn-add add-credit" href="./addCreditDynamics.html?idxTab=0">新增</a>
+            </div>
+        </div>
+        <div class="content" >
+            <div class="table-wrap">
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th>标题</th>
+                    <th>来源</th>
+                    <th>时间</th>
+                    <th class="th-width">操作</th>
+                </tr>
+                </thead>
+                <tbody id="content-ID">
+                <script id="template_id" type="text/html">
+                    {{each data as value i}}
+                    {{if i % 2 == 0}}<tr>{{else}}<tr class="even">{{/if}}
+                        <td>{{value.title}}</td>
+                        <td>{{value.source}}</td>
+                        <td>{{value.PUBLISH_DATE}}</td>
+                        <td>
+                            <a class="a-btn edit" href="editCreditDynamics.html?idxTab=0&id={{value.id}}">修改</a>
+                            <a class="a-btn del" sid="{{value.id}}">删除</a>
+                            <a class="a-btn see" href="creditDynamicsDetial.html?idxTab=0&id={{value.id}}">查看</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </script>
+                </tbody>
+            </table>
+            </div>
+            <div id="pager" class="pager"></div>
+        </div>
+    </div>
+</div>
+<!-- start footer.html-->
+<div class="footer">
+	<div class="footer_con">
+		<div class="foot_img">
+			<img src="../../img/footer-icon.png" alt="">
+		</div>
+
+		<div class="foot_right">
+			<div class="footContact">
+				<p>
+					<a href="">网站声明</a>
+					<a class="s-item" href="">关于我们</a>
+				</p>
+				<span>主办单位 : 泸州市发展改革委 泸州信用信息办公室 中国人民银行泸州市中心支行</span>
+				<span>技术支持 : 国久大数据有限公司</span><br>
+				<span>川公网安备 51050202000190号</span>
+				<span>ICP备案编号 : 蜀ICP备11010377号-2</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!- -[if (gte IE 6)&(lte IE 8)]>
+<script type="text/javascript" src="../../js/common/json2.js"></script>
+<script type="text/javascript" src="../../js/common/console.js"></script>
+<![endif]- ->
+<script type="text/javascript" src='../../js/common/jquery.js'></script>
+<script type="text/javascript" src='../../layui/layui.js'></script>
+<!- -[if (gte IE 6)&(lte IE 9)]>
+<script type="text/javascript" src="../../js/common/jquery.xdomainrequest.min.js"></script>
+<script type="text/javascript" src="../../js/common/jquery.placeholder.min.js"></script>
+<![endif]- ->
+<!-- DateUtil 时间处理工具，可选择使用
+<script type="text/javascript" src='../../js/common/DateUtil.js'></script>
+-->
+<script type="text/javascript" src="../../js/common/arttemplate.js"></script>
+<script type="text/javascript" src='../../js/common/common.js'></script>
+
+<!-- end footer.html-->
+<script src='../../js/creditDynamics/creditDynamics.js' ></script>
+</body>
+</html>

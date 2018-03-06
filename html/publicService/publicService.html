@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>泸州市公共信用服务平台</title>
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../layui/css/layui.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/publicService.css" rel="stylesheet">
+</head>
+<body class="font-color">
+<div class="container-wrap">
+    <div class="wrap-main">
+        <div class="wrap-title">
+            <div class="wrap-logo"><img src="../../img/logo.png" alt=""></div>
+            <span class="wrap-font">泸州市公共信用服务平台</span>
+        </div>
+        <div class="wrap-body">
+            <ul>
+                <li class="wrap-part1"><a><p class="wrap-img wrap-img1"></p><p class="wrap-text"><span>政府服务子系统</span></p></a></li>
+                <li class="wrap-part2"><a><p  class="wrap-img wrap-img2"></p><span class="wrap-text">公共服务子系统</span></a></li>
+                <li class="wrap-part3"><a><p class="wrap-img wrap-img3"></p><p class="wrap-text"> <span>专业机构服务子系统</span></p></a></li>
+                <li class="wrap-part4" id="part4"><a href="#"><p class="wrap-img wrap-img4"></p><p class="wrap-text"><span>数据上报管理系统</span></p></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<form style="width: 0;height: 0;visibility: hidden;" id="loginForm" name="loginForm" action="http://202.106.10.250:6089/report/data/login" method="post">
+    <input type="text" name='username' id='username' placeholder="用户名" />
+    <input type="password" name='password' id='password' placeholder="登录密码" />
+    <!--<input type="submit" class="one-btn" value='登录' id='login-btn' />-->
+</form>
+<!- -[if (gte IE 6)&(lte IE 8)]>
+<script type="text/javascript" src="../../js/common/json2.js"></script>
+<script type="text/javascript" src="../../js/common/console.js"></script>
+<![endif]- ->
+<script type="text/javascript" src='../../js/common/jquery.js'></script>
+<script type="text/javascript" src='../../layui/layui.js'></script>
+<!- -[if (gte IE 6)&(lte IE 9)]>
+<script type="text/javascript" src="../../js/common/jquery.xdomainrequest.min.js"></script>
+<script type="text/javascript" src="../../js/common/jquery.placeholder.min.js"></script>
+<![endif]- ->
+<script type="text/javascript" src="../../js/common/arttemplate.js"></script>
+<script type="text/javascript" src='../../js/common/common.js'></script>
+<script charset="utf-8" src="../../js/common/jquery.form.min.js"></script>
+<script src='../../js/publicService/publicService.js'></script>
+
+</body>
+</html>

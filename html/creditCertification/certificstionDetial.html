@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <title>信用认证</title>
+<!-- start head.html-->
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../layui/css/layui.css" rel="stylesheet">
+    <!- -[if (gte IE 6)&(lte IE 8)]>
+    <!-- CSS3选择器支持，如使用请打开
+         非必要情况下一般不建议使用，IE8下会影响页面性能
+    <script type="text/javascript" src="../../js/common/nwmatcher.js"></script>
+    <script type="text/javascript" src="../../js/common/selectivizr-min.js"></script>
+    -->
+    <!-- 低版本浏览器兼容 Html5 新标签，如：article、footer、header、nav、section等
+         非必要情况下一般不建议使用
+    <script src="../../js/common/html5shiv.min.js"></script>
+    -->
+    <!--  ES5 的一些属性、方法。非必要情况下一般不建议使用
+    <script src="../../js/common/es5-sham.min.js"></script>
+    -->
+    <![endif]- ->
+
+<!-- end head.html-->
+  <link type="text/css" href="../../css/less/creditObjection.css" rel="stylesheet">
+  <style>
+    .td-title{
+      width: 130px !important;
+    }
+  </style>
+</head>
+<body>
+<!-- start header.html-->
+<div class="header">
+	<div class="hd-box">
+		<a href="../publicService/publicService.html"><img class="hd-logo" src="../../img/hd-logo.png">
+			<span class="hd-title">泸州市公共信用信息公众服务平台</span></a>
+		<div class="header-opt">
+			<a href="../messageNotification/messageNotification.html"><span class="hd-msg"><span class="hd-msg-num">&nbsp;&nbsp;</span></span></a>
+			<img class="hd-user" src="../../img/user-head.png">
+			<span class="hd-quit"></span>
+			<i class="vertical-align"></i>
+		</div>
+		<i class="vertical-align"></i>
+	</div>
+</div>
+<!-- end header.html-->
+<div class="main-wrap clearfix">
+<!-- start menu.html-->
+<div class="menu">
+    <ul>
+        <li surl="../creditDynamics/creditDynamics.html"><span class="icon1"></span><a herf="#">信用动态</a></li>
+        <li surl="../punishment/punishment.html"><span class="icon2"></span><a herf="#">联合惩戒</a></li>
+        <li surl="../creditObjection/creditObjection.html"><span class="icon3"></span><a herf="#">信用异议</a></li>
+        <li surl="../creditCertification/creditCertification.html"><span class="icon4"></span><a herf="#">信用认证</a></li>
+        <li surl="../creditRepair/creditRepair.html"><span class="icon5"></span><a herf="#">信用修复</a></li>
+    </ul>
+</div>
+<!-- end menu.html-->
+  <div class="container">
+    <div class="wrap-detial">
+      <p class="wrap-title">
+        <span>信用认证详情</span>
+      </p>
+      <div class="wrap-content wrap-main" id="detial-content">
+        <script id="template_id" type="text/html">
+          <p class="title">企业信息</p>
+          <table>
+            <tr>
+              <td class="td-title">企业名字：</td><td class="td-val">{{COMPANY_NAME}}</td>
+              <td class="td-title">法定代表：</td><td class="td-val">{{DE1004}}</td>
+            </tr>
+            <tr>
+              <td class="td-title">企业类型：</td><td class="td-val">{{DE1001}}</td>
+              <td class="td-title">工商注册号：</td><td class="td-val">{{DE1010}}</td>
+            </tr>
+            <tr>
+              <td class="td-title">住所：</td><td colspan="3" class="td-val">{{DE1032}}</td>
+            </tr>
+            <tr>
+              <td class="td-title">成立日期：</td><td class="td-val">{{DE1058}}</td>
+              <td class="td-title">登记机关：</td><td class="td-val">{{REGISTER_ORGAN}}</td>
+            </tr>
+            <tr>
+              <td class="td-title">有效日期：</td><td class="td-val">{{DE1059}}</td>
+              <td class="td-title">统一社会信用代码：</td><td class="td-val">{{DE1006}}</td>
+            </tr>
+            <tr>
+              <td class="td-title">商标：</td>
+              <td colspan="3" class="td-val" id="companyBrand" style="height: auto;"></td>
+            </tr>
+            <tr>
+              <td class="td-title">公司信息：</td>
+              <td colspan="3" class="td-val" id="descId"></td>
+            </tr>
+          </table>
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- start footer.html-->
+<div class="footer">
+	<div class="footer_con">
+		<div class="foot_img">
+			<img src="../../img/footer-icon.png" alt="">
+		</div>
+
+		<div class="foot_right">
+			<div class="footContact">
+				<p>
+					<a href="">网站声明</a>
+					<a class="s-item" href="">关于我们</a>
+				</p>
+				<span>主办单位 : 泸州市发展改革委 泸州信用信息办公室 中国人民银行泸州市中心支行</span>
+				<span>技术支持 : 国久大数据有限公司</span><br>
+				<span>川公网安备 51050202000190号</span>
+				<span>ICP备案编号 : 蜀ICP备11010377号-2</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!- -[if (gte IE 6)&(lte IE 8)]>
+<script type="text/javascript" src="../../js/common/json2.js"></script>
+<script type="text/javascript" src="../../js/common/console.js"></script>
+<![endif]- ->
+<script type="text/javascript" src='../../js/common/jquery.js'></script>
+<script type="text/javascript" src='../../layui/layui.js'></script>
+<!- -[if (gte IE 6)&(lte IE 9)]>
+<script type="text/javascript" src="../../js/common/jquery.xdomainrequest.min.js"></script>
+<script type="text/javascript" src="../../js/common/jquery.placeholder.min.js"></script>
+<![endif]- ->
+<!-- DateUtil 时间处理工具，可选择使用
+<script type="text/javascript" src='../../js/common/DateUtil.js'></script>
+-->
+<script type="text/javascript" src="../../js/common/arttemplate.js"></script>
+<script type="text/javascript" src='../../js/common/common.js'></script>
+
+<!-- end footer.html-->
+<script src='../../js/creditCertification/certificstionDetail.js' ></script>
+</body>

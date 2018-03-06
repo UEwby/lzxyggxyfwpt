@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>信用异议</title>
+<!-- start head.html-->
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../layui/css/layui.css" rel="stylesheet">
+    <!- -[if (gte IE 6)&(lte IE 8)]>
+    <!-- CSS3选择器支持，如使用请打开
+         非必要情况下一般不建议使用，IE8下会影响页面性能
+    <script type="text/javascript" src="../../js/common/nwmatcher.js"></script>
+    <script type="text/javascript" src="../../js/common/selectivizr-min.js"></script>
+    -->
+    <!-- 低版本浏览器兼容 Html5 新标签，如：article、footer、header、nav、section等
+         非必要情况下一般不建议使用
+    <script src="../../js/common/html5shiv.min.js"></script>
+    -->
+    <!--  ES5 的一些属性、方法。非必要情况下一般不建议使用
+    <script src="../../js/common/es5-sham.min.js"></script>
+    -->
+    <![endif]- ->
+
+<!-- end head.html-->
+    <link type="text/css" href="../../css/less/creditObjection.css" rel="stylesheet">
+</head>
+<body>
+<!-- start header.html-->
+<div class="header">
+	<div class="hd-box">
+		<a href="../publicService/publicService.html"><img class="hd-logo" src="../../img/hd-logo.png">
+			<span class="hd-title">泸州市公共信用信息公众服务平台</span></a>
+		<div class="header-opt">
+			<a href="../messageNotification/messageNotification.html"><span class="hd-msg"><span class="hd-msg-num">&nbsp;&nbsp;</span></span></a>
+			<img class="hd-user" src="../../img/user-head.png">
+			<span class="hd-quit"></span>
+			<i class="vertical-align"></i>
+		</div>
+		<i class="vertical-align"></i>
+	</div>
+</div>
+<!-- end header.html-->
+<div class="main-wrap clearfix">
+<!-- start menu.html-->
+<div class="menu">
+    <ul>
+        <li surl="../creditDynamics/creditDynamics.html"><span class="icon1"></span><a herf="#">信用动态</a></li>
+        <li surl="../punishment/punishment.html"><span class="icon2"></span><a herf="#">联合惩戒</a></li>
+        <li surl="../creditObjection/creditObjection.html"><span class="icon3"></span><a herf="#">信用异议</a></li>
+        <li surl="../creditCertification/creditCertification.html"><span class="icon4"></span><a herf="#">信用认证</a></li>
+        <li surl="../creditRepair/creditRepair.html"><span class="icon5"></span><a herf="#">信用修复</a></li>
+    </ul>
+</div>
+<!-- end menu.html-->
+    <div class="container">
+        <div class="form-wrap">
+            <div class="form-group fl">
+                <span class="label">申请人</span>
+                <input type="text" id="proposer"/>
+            </div>
+            <div class="form-group fl">
+                <span class="label">时间</span>
+                <input class="date-input" id="startTime" type="text"/><span class="line">—</span><input class="date-input" id="endTime" type="text"/>
+            </div>
+            <div class="form-group fl">
+                <span class="label">异议对象</span>
+                <input type="text" id="objectionObject"/>
+            </div>
+            <div class="form-group fl">
+                <span class="label">异议标题</span>
+                <input type="text" id="objectionTitle"/>
+            </div>
+            <div class="form-group fr search">
+                <span class="btn-sapn btn-sapn-query" onclick="queryList()">查询</span>
+            </div>
+        </div>
+        <div class="content" >
+            <div class="table-wrap">
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th>申请人</th>
+                    <th>异议对象</th>
+                    <th>异议标题</th>
+                    <th>申请时间</th>
+                    <th>办理状态</th>
+                    <th class="th-width-min">操作</th>
+                </tr>
+                </thead>
+                <tbody id="table-list">
+                <script id="template_id" type="text/html">
+                    {{if data.length>0}}
+                    {{each data as value i}}
+                    {{if i%2!=0}}<tr class="even">{{else}}<tr>{{/if}}
+                        <td>{{value.PROPOSER}}</td>
+                        <td>{{value.OBJECTION_OBJECT}}</td>
+                        <td>{{value.OBJECTION_TITLE}}</td>
+                        <td>{{value.APPLY_TIME}}</td>
+                        {{if value.DISPOSE_STATE==0}}
+                        <td>未办理</td>
+                        <td><a class="a-btn see" href="./creditObjectionHandle.html?idxTab=2&ID={{value.ID}}">办理</a></td>
+                        {{else}}
+                        <td>已办理</td>
+                        <td><a class="a-btn handle" href="./creditObjectionDetial.html?idxTab=2&ID={{value.ID}}">查看</a></td>
+                        {{/if}}
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                        <tr><td colspan="6" class="noneData">暂无数据</td></tr>
+                    {{/if}}
+                </script>
+                
+                <!--<tr>-->
+                    <!--<td>泸州一品坊酒业有限公司</td>-->
+                    <!--<td>泸州市工商局</td>-->
+                    <!--<td>不满工处罚xx号信用异议申请</td>-->
+                    <!--<td>已处理</td>-->
+                    <!--<td>2017-08-09</td>-->
+                    <!--<td>-->
+                        <!--<a class="a-btn handle" href="./creditObjectionDetial.html?idxTab=2">办理</a>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+            </div>
+            <div id="pager" class="pager"></div>
+        </div>
+    </div>
+</div>
+<!-- start footer.html-->
+<div class="footer">
+	<div class="footer_con">
+		<div class="foot_img">
+			<img src="../../img/footer-icon.png" alt="">
+		</div>
+
+		<div class="foot_right">
+			<div class="footContact">
+				<p>
+					<a href="">网站声明</a>
+					<a class="s-item" href="">关于我们</a>
+				</p>
+				<span>主办单位 : 泸州市发展改革委 泸州信用信息办公室 中国人民银行泸州市中心支行</span>
+				<span>技术支持 : 国久大数据有限公司</span><br>
+				<span>川公网安备 51050202000190号</span>
+				<span>ICP备案编号 : 蜀ICP备11010377号-2</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!- -[if (gte IE 6)&(lte IE 8)]>
+<script type="text/javascript" src="../../js/common/json2.js"></script>
+<script type="text/javascript" src="../../js/common/console.js"></script>
+<![endif]- ->
+<script type="text/javascript" src='../../js/common/jquery.js'></script>
+<script type="text/javascript" src='../../layui/layui.js'></script>
+<!- -[if (gte IE 6)&(lte IE 9)]>
+<script type="text/javascript" src="../../js/common/jquery.xdomainrequest.min.js"></script>
+<script type="text/javascript" src="../../js/common/jquery.placeholder.min.js"></script>
+<![endif]- ->
+<!-- DateUtil 时间处理工具，可选择使用
+<script type="text/javascript" src='../../js/common/DateUtil.js'></script>
+-->
+<script type="text/javascript" src="../../js/common/arttemplate.js"></script>
+<script type="text/javascript" src='../../js/common/common.js'></script>
+
+<!-- end footer.html-->
+<script src='../../js/creditObjection/creditObjection.js' ></script>
+<script>
+  $(function(){
+    laydate("startTime")
+    laydate("endTime")
+    queryList();
+  })
+</script>
+</body>

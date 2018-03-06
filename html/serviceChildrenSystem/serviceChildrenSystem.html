@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>泸州市公共信用信息共享平台</title>
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/serviceChildrenSystem.css" rel="stylesheet">
+</head>
+<body class="font-color">
+<div class="container-wrap">
+    <div class="wrap-main">
+        <div class="wrap-title">
+            <div class="wrap-logo"><img src="../../img/logo.png" alt=""></div>
+            <span class="wrap-font">政府服务子系统</span>
+        </div>
+        <div id="wrap-content">
+            <dl class="wrap-list wrap-step1">
+                <a href="../creditDynamics/creditDynamics.html"><dt>信用动态</dt></a>
+            </dl>
+            <dl class="wrap-list wrap-step2">
+                <a href="../creditCertification/creditCertification.html?idxTab=3"><dt>信用认证</dt></a>
+            </dl>
+            <dl class="wrap-list wrap-step3">
+                <!--<dd class="wrap-step3"></dd>-->
+                <a href="../punishment/punishment.html?idxTab=1"><dt>联合奖惩</dt></a>
+            </dl>
+            <dl class="wrap-list wrap-step4">
+                <!--<dd class="wrap-step4"></dd>-->
+                <a href="../creditObjection/creditObjection.html?idxTab=2"><dt>信用异议</dt></a>
+            </dl>
+            <dl class="wrap-list wrap-step5">
+                <!--<dd class="wrap-step5"></dd>-->
+                <a href="../creditRepair/creditRepair.html?idxTab=4"><dt>信用修复</dt></a>
+            </dl>
+            <dl class="wrap-list wrap-step6">
+                <a href="../messageNotification/messageNotification.html"><dt>消息通知</dt></a>
+            </dl>
+        </div>
+        <div id="wrap-footer">
+            <dl class="wrap-show wrap-step1">
+                <dd class="step"></dd>
+                <dt>
+                    <div>信用泸州官网</div>
+                    <p class="wrap-border"></p>
+                </dt>
+            </dl>
+            <dl class="wrap-show wrap-step2">
+                <dd class="step"></dd>
+                <dt>
+                    <div>信用泸州APP</div>
+                    <p class="wrap-border"></p>
+                </dt>
+            </dl>
+            <dl class="wrap-show wrap-step3">
+                <dd class="step"></dd>
+                <dt>
+                    <div>信用泸州公众号</div>
+                    <p class="wrap-border"></p>
+                </dt>
+            </dl>
+            <dl class="wrap-show wrap-step4">
+                <dd class="step"></dd>
+                <dt>
+                    <div>大数据应用平台</div>
+                    <p class="wrap-border"></p>
+                </dt>
+            </dl>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    //  通过class来获取对象
+
+
+
+     function getClassName(className)
+     {
+         var children = document.getElementsByTagName('*') || document.all;
+         var elements=new Array();
+         for(var i=0;i<children.length;i++)
+         {
+             var child=children[i];
+             var classNames=child.className.split(' ');
+             for(var j=0;j<classNames.length;j++)
+             {
+                 if(className==classNames[j])
+                 {
+                     elements.push(child);
+                     break;
+                 }
+             }
+         }
+         return elements;
+     }
+
+
+
+     if(document.getElementsByClassName){
+         var wrapShow=document.getElementsByClassName("wrap-show");
+         var wrapList=document.getElementsByClassName("wrap-border");
+     }else{
+         var wrapShow=getClassName("wrap-show");
+         var wrapList=getClassName("wrap-border");
+     }
+
+     var wrapBorderList=document.getElementsByTagName("p");
+         for(var n=0;n<wrapShow.length;n++){
+             if(window.attachEvent){
+                 //  ie6
+                 (function(n){
+                         wrapShow[n].attachEvent("onmouseover",function(){
+                             for(var m=0;m<wrapBorderList.length;m++){
+                                 wrapBorderList[m].style.backgroundColor="#fff";
+                                 wrapBorderList[m].style.width=30+"px";
+                             }
+                             var wrapBorder=wrapList[n];
+                             wrapBorder.style.backgroundColor="#ffcc00";
+                             wrapBorder.style.width=120+"px";
+                         })
+                     }
+                 )(n)
+                 wrapShow[n].attachEvent("onmouseout",function(){
+                     //   ie 6
+                     for(var m=0;m<wrapBorderList.length;m++){
+                         wrapBorderList[m].style.backgroundColor="#fff";
+                         wrapBorderList[m].style.width=30+"px";
+                     }
+                 })
+             }else{
+                 wrapShow[n].addEventListener("mouseover",function(){
+                     //   其他
+                     for(var m=0;m<wrapBorderList.length;m++){
+                         wrapBorderList[m].style.backgroundColor="#fff";
+                         wrapBorderList[m].style.width=30+"px";
+                     }
+                     var wrapBorder=this.getElementsByTagName("p")[0];
+                     wrapBorder.style.backgroundColor="#ffcc00"
+                     wrapBorder.style.width=120+"px";
+                 })
+                 wrapShow[n].addEventListener("mouseout",function(){
+                     //   其他
+                     for(var m=0;m<wrapBorderList.length;m++){
+                         wrapBorderList[m].style.backgroundColor="#fff";
+                         wrapBorderList[m].style.width=30+"px";
+                     }
+                 })
+             }
+         }
+</script>
+</html>
